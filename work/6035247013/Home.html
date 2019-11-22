@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>My React native web App </title>
+  <link rel="stylesheet" href="bootstrap.css">
+  <link rel="stylesheet" href="bootstrap.min.css">
+
+
+  <script type="text/javascript">
+    function Main() {
+
+    }//end of Main
+
+    function convertMoney() {
+      //เก็บค่าจากการเลือก
+      let start = document.getElementById('start').value;
+      let end = document.getElementById('end').value;
+
+//เช็คเงื่อนไขว่าเลือกอะไร
+      if (start === '1' && end === '2') 
+      {
+        THBtoDoll()
+      } 
+      else if (start === '1' && end === '3') 
+      {
+        THBtoKRW()
+      } 
+      else if (start === '2' && end === '1') 
+      {
+        DolltoTHB()
+      }
+      else if (start === '2' && end === '3') 
+      {
+        DolltoKRW()
+      }
+      else if (start === '3' && end === '1') 
+      {
+        KRWtoTHB()
+      }
+      else if (start === '3' && end === '2') 
+      {
+        KRWtoDoll()
+      }
+      else{
+        console.log('else')
+      }
+    }
+
+//แปลง บาท เป็น ดอล
+    function THBtoDoll() {
+      let doll = 30.21
+      let money = document.getElementById('money').value;
+
+      let result = money / doll
+      document.getElementById('result').value = result
+
+    }
+
+//แปลง บาท เป็น วอน
+function THBtoKRW() {
+      let KRW = 38.71
+      let money = document.getElementById('money').value;
+
+      let result = money * KRW
+      document.getElementById('result').value = result
+
+    }
+
+//แปลง ดอล เป็น บาท
+function DolltoTHB() {
+      let doll = 30.21
+      let money = document.getElementById('money').value;
+
+      let result = money * doll
+      document.getElementById('result').value = result
+
+    }
+
+    //แปลง ดอล เป็น วอน
+function DolltoKRW() {
+      let KRW = 1177.09
+      let money = document.getElementById('money').value;
+
+      let result = money * KRW 
+      document.getElementById('result').value = result
+
+    }
+
+    //แปลง วอน เป็น บาท
+function KRWtoTHB() {
+      let THB =  0.026
+      let money = document.getElementById('money').value;
+
+      let result = money * THB
+      document.getElementById('result').value = result
+
+    }
+
+        //แปลง วอน เป็น บาท
+function KRWtoDoll() {
+      let doll =  0.00085
+      let money = document.getElementById('money').value;
+
+      let result = money * doll
+      document.getElementById('result').value = result
+
+    }
+
+
+  </script>
+
+
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="Home.html">Design</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03"
+      aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor03">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search">
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+
+  <table>
+    <tr>
+      <td>
+        <div class="form-group">
+          <label class="control-label">แปลงสุกลเงินจาก :</label>
+          <select id="start" class="custom-select">
+            <option selected="">แปลงสกุลเงินเริ่มต้น</option>
+            <option value="1">ไทยบาท[THB]</option>
+            <option value="2">ดอลลาร์อเมริกา[USD]</option>
+            <option value="3">เกาหลีวอน[KRW]</option>
+          </select>
+        </div>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <div class="form-group">
+          <div class="form-group">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">จำนวนเงิน</span>
+              </div>
+              <input id="money" type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+              <div class="input-group-append">
+                <span class="input-group-text">.00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <div class="form-group">
+          <label class="control-label">ไปที่ :</label>
+          <select id="end" class="custom-select">
+            <option selected="">แปลงสกุลเงินเป็น</option>
+            <option value="1">ไทยบาท[THB]</option>
+            <option value="2">ดอลลาร์อเมริกา[USD]</option>
+            <option value="3">เกาหลีวอน[KRW]</option>
+          </select>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td><input type="submit" onclick="convertMoney()" value="แปลง"></td>
+    </tr>
+
+  </table>
+
+
+  <input id="result" type="text" class="form-control">
+  <div id="resul"></div>
+
+
+</body>
+
+</html>
