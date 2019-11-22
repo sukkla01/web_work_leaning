@@ -14,12 +14,14 @@
 
         function Saveflie() {  //Validation is a function Name it is perform on onClentClick Event
             var errors = "";
+
+            console.log('aa')
             errors += CheckName();
             errors += CheckLastName();
 
             errors += CheckEmail();
             errors += CheckPassword();
-            errors += CheckPosition();
+            // errors += CheckPosition();
 
             if (errors != "") {
                 alert(errors);
