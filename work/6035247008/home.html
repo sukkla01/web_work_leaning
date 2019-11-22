@@ -1,0 +1,227 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>WebApp</title>
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="bootstrap.min">
+
+    <link href="https://fonts.googleapis.com/css?family=Oswald:400,700&display=swap" rel="stylesheet">
+
+
+    <script type="text/javascript">
+
+        function Saveflie() {  //Validation is a function Name it is perform on onClentClick Event
+            var errors = "";
+            errors += CheckName();
+            errors += CheckLastName();
+
+            errors += CheckEmail();
+            errors += CheckPassword();
+
+
+            if (errors != "") {
+                alert(errors);
+                return false;
+            }
+        }
+
+        function CheckName() {
+            //รับค่าจาก client
+            var name = document.getElementById('exampleInputName');
+            //var exp = /^[a-zA-Z ]+$/
+            var exp = /^[ก-๙ ]+$/
+            //ถ้าไม่ได้กรอกข้อมูล
+            if (name.value == "") {
+                return "กรุณากรอกชื่อ\n";
+            }
+
+            //กรณีถูกต้องแล้ว
+            else if (exp.test(name.value)) {
+                return "ข้อมูลชื่อถูกต้อง\n"
+            }
+            //ถ้าข้อมูลผิดเงื่อนไข
+            else {
+                return "ข้อมูลชื่อไม่ถูกต้อง\n"
+            }
+
+        }
+
+        function CheckLastName() {
+            //รับค่าจาก client
+            var lastname = document.getElementById('exampleInputLastName');
+            //var exp = /^[a-zA-Z ]+$/
+            var exp = /^[ก-๙ ]+$/
+            //ถ้าไม่ได้กรอกข้อมูล
+            if (lastname.value == "") {
+                return "กรุณากรอกนามสกุล\n";
+            }
+
+            //กรณีถูกต้องแล้ว
+            else if (exp.test(lastname.value)) {
+                return "ข้อมูลนามสกุลถูกต้อง\n"
+            }
+            //ถ้าข้อมูลผิดเงื่อนไข
+            else {
+                return "ข้อมูลนามสกุลไม่ถูกต้อง\n"
+            }
+
+        }
+
+        function CheckEmail() {
+            var email = document.getElementById('exampleInputEmail1');
+            var exp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+
+            if (email.value == "") {
+                return "กรุณากรอกอีเมล์\n";
+            }
+            else if (exp.test(email.value)) {
+                return "ข้อมูลอีเมล์ถูกต้อง\n";
+            }
+            else {
+                return "ข้อมูลอีเมล์ไม่ถูกต้อง\n";
+            }
+        }
+
+        function CheckPassword() {
+            var password = document.getElementById('exampleInputPassword1');
+            //ภายในรหัส6ตัว ใส่อักขระภาษาอังกฤษทั้งหมดได้6ตัว,หรือใส่ตัวเลข(0-9)ได้6ตัว แต่อย่างน้อย1ตัว ต้องเป็นอักขระ
+            var exp = /^(?![0-9]{6}[0-9a-zA-Z]{6}$)/
+
+            if (password.value == "") {
+                return "กรุณากรอกพาสเวิร์ด\n";
+            }
+            else if (exp.test(password.value)) {
+                return "ข้อมูลพาสเวิร์ดถูกต้อง\n";
+            }
+            else {
+                return "ข้อมูลพาสเวิร์ดไม่ถูกต้อง\n";
+            }
+        }
+
+
+    </script>
+
+</head>
+
+<body>
+       
+    <form>
+        <div>
+            <fieldset>
+                <legend>Create an account</legend>
+
+                <div class="form-group">
+                    <label for="exampleInputName">Name</label>
+                    <input type="Name" class="form-control" id="exampleInputName" aria-describedby="Name"
+                        placeholder="Enter Name">
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputLastName">LastName</label>
+                    <input type="LastName" class="form-control" id="exampleInputLastName" aria-describedby="LastName"
+                        placeholder="Enter LastName">
+
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="Email address"
+                        placeholder="Enter email">
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                        else.</small>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <label for=" IPAddress"> IP Address</label>
+                    <input type=" IPAddress" class="form-control" id=" IPAddress" placeholder=" Enter IP Address">
+
+                </div>
+                <div class="form-group">
+                    <label for="Village No1">Village No</label>
+                    <select class="form-control" id="Village No1">
+                        <option>........</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+
+
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="District/Area1">District / Area</label>
+                    <select class="form-control" id="District/Area1">
+                        <option>........</option>
+                        <option>อำเภอชาติตระการ</option>
+                        <option>อำเภอนครไทย</option>
+                        <option>อำเภอเนินมะปราง</option>
+                        <option>อำเภอบางกระทุ่ม</option>
+                        <option>อำเภอบางระกำ</option>
+                        <option>อำเภอวังทอง</option>
+                        <option>อำเภอวัดโบสถ์</option>
+                        <option>อำเภอพรหมพิราม</option>
+                        <option>อำเภอเมืองพิษณุโลก</option>
+
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="Province1">Province</label>
+                    <select class="form-control" id="Province1">
+                        <option>........</option>
+                        <option>จังหวัดพิษณุโลก</option>
+
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="Postal Code2">Postal Code</label>
+                    <select multiple="" class="form-control" id="Postal Code2">
+                        <option>65170</option>
+                        <option>65120</option>
+                        <option>65190</option>
+                        <option>65110</option>
+                        <option>65140</option>
+                        <option>65130</option>
+                        <option>65160</option>
+                        <option>65150</option>
+                        <option>65000</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="Message">Message</label>
+                    <textarea class="form-control" id="Message" rows="3" placeholder=" Enter Message"></textarea>
+                </div>
+
+                <button style="margin-top: 20px;" type="button" class="btn btn-primary"
+                    onclick="Saveflie()">Save</button>
+
+                <fieldset>
+        </div>
+    </form>
+   
+    <footer class="footer mt-auto py-3">
+        <div class="container">
+            <div class="row justify-content-between">
+
+                BY THAWEE KONKEAW WEBAPP©2019
+
+            </div>
+
+
+        </div>
+    </footer>
+   
+</body>
+
+</html>
